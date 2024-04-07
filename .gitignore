@@ -1,2 +1,5 @@
 #↓ignored folders↓
 bak/
+
+#↓ignored files↓
+.directory
