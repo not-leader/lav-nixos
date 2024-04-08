@@ -19,21 +19,21 @@ in {
     # outputs.nixosModules.example
 
     # Or modules from other flakes (such as nixos-hardware):
-    #inputs.hardware.nixosModules.common-ssd
+     #inputs.hardware.nixosModules.common-ssd
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-    ./home-manager/home.nix
+    #./home-manager/home.nix
     #(~/Nix/nixos + "/${hostname}.nix")
-  ];
+  ]; 
 
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable Bluetooth
+  # Enable Bluetooth 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
@@ -55,7 +55,7 @@ in {
     LC_TIME = "fi_FI.UTF-8";
   };
 
-  # Enable the X11 windowing system.
+ # Enable the X11 windowing system.
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
@@ -66,7 +66,7 @@ in {
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   programs.dconf.enable = true; #fix for gtk theming under wayland
-
+  
   # Enables Wayland
   services.xserver.displayManager.defaultSession = "plasmawayland";
 
@@ -145,44 +145,80 @@ in {
 
   # Add the rest of your current configuration
 
-  # systen d bootloader
+  # systen d bootloader 
   #boot.loader.systemd-boot.enable = true;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
 
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lavender = {
     isNormalUser = true;
     description = "Lavender";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      firefox
+      steam
+      itch    
+      keepassxc
+      armcord
+      gimp-with-plugins
+      #gimp
+      inkscape-with-extensions
+      #gimpPlugins.resynthesizer
+      krita
+      github-desktop
+      wineWowPackages.stable
+      winetricks
+      syncthing
+      libresprite
+      spotify
+      handbrake
+      slade
+      trenchbroom
+      easyeffects
+      audacity
+      prismlauncher
+      mpv
+      haruna 
+      deluge
+      vscodium
+      godot_4
+      lutris-free
+      httrack
+      kate
+      libsForQt5.filelight
+      obs-studio
+      #thunderbird
+    ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit config.nix! The Nano editor is also installed by default.
-    wget
-    micro
-    htop
-    neofetch
-    python3
-    vulkan-tools
-    mesa-demos
-    git
+  #  vim # Do not forget to add an editor to edit config.nix! The Nano editor is also installed by default.
+     wget
+     micro
+     htop
+     neofetch
+     python3
+     vulkan-tools
+     mesa-demos
+     git
   ];
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   #services.openssh = {
-  #enable = true;
-  #settings = {
-  # Forbid root login through SSH.
-  #PermitRootLogin = "no";
-  # Use keys only. Remove if you want to SSH using password (not recommended)
-  #PasswordAuthentication = false;
-  #};
+    #enable = true;
+    #settings = {
+      # Forbid root login through SSH.
+      #PermitRootLogin = "no";
+      # Use keys only. Remove if you want to SSH using password (not recommended)
+      #PasswordAuthentication = false;
+    #};
   #};
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

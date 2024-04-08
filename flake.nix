@@ -99,7 +99,7 @@
     homeManagerModules = import ./modules/home-manager;
 
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#6950x'
+    # Available through 'nixos-rebuild --flake .#i7-6950x'
 
     nixosConfigurations = {
       # hostname
@@ -127,10 +127,9 @@
       "lavender@i7-6950x" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home-manager/home.nix
-        ];
+        # > Our main home-manager configuration file <
+        modules = [./home-manager/home.nix];
+
       };
     };
   };
