@@ -47,15 +47,57 @@
     };
   };
 
-  # TODO: Set your username
+  # Set your username
   home = {
-    username = "your-username";
-    homeDirectory = "/home/your-username";
+    username = "lavender";
+    homeDirectory = "lavender";
   };
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  home.packages = with pkgs; [ 
+      firefox
+      itch    
+      keepassxc
+      armcord
+      gimp-with-plugins
+      blender-hip
+      #gimp
+      inkscape-with-extensions
+      #gimpPlugins.resynthesizer
+      krita
+      github-desktop
+      wineWowPackages.stable
+      winetricks
+      syncthing
+      libresprite
+      spotify
+      handbrake
+      slade
+      trenchbroom
+      easyeffects
+      audacity
+      prismlauncher
+      mpv
+      haruna 
+      deluge
+      vscodium
+      godot_4
+      lutris-free
+      httrack
+      kate
+      libsForQt5.filelight
+      obs-studio
+      #thunderbird
+    ];
+
+    programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    programs.steam.gamescopeSession.enable = true; # set steam to start in gamescope
+  };
+
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -65,5 +107,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 }
