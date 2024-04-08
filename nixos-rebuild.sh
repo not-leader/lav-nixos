@@ -16,7 +16,7 @@ set -e
 $EDITOR configuration.nix
 
 # cd to your config dir
-pushd ~/dotfiles/nixos/
+pushd ~/Nix/nixos/
 
 # Early return if no changes were detected (thanks @singiamtel!)
 if git diff --quiet '*.nix'; then
