@@ -1,4 +1,11 @@
 {
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   users.extraGroups.vboxusers.members = ["user-with-access-to-virtualbox"];
 
   nixpkgs.config.allowUnfree = true;

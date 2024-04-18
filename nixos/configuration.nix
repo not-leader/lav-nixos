@@ -6,6 +6,7 @@
   lib,
   config,
   pkgs,
+  pkgs-unstable,
   ...
 }: {
   # You can import other NixOS modules here
@@ -95,7 +96,6 @@
       # (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel" "networkmanager"];
       packages = with pkgs; [
-        firefox
         itch
         prismlauncher
         r2modman
@@ -105,7 +105,6 @@
         blender-hip
         #gimp
         inkscape-with-extensions
-        #gimpPlugins.resynthesizer
         krita
         github-desktop
         wineWowPackages.stable
@@ -129,6 +128,7 @@
         libsForQt5.filelight
         obs-studio
         alejandra
+        firefox
       ];
 
       #openssh.authorizedKeys.keys = [
@@ -137,9 +137,15 @@
     };
   };
 
+  pkgs.vesktop.override {
+      nss = pkgs.nss_3_99;
+
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0" # for r2modman 3.1.44
+    #"python-2.7.18.7"
   ];
+
+  #nixpkgs.config.allowBroken = true;
 
   # systemd bootloader
   #boot.loader.systemd-boot.enable = true;
@@ -149,26 +155,32 @@
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
 
-  environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit config.nix! The Nano editor is also installed by default.
-    wget
-    micro
-    bash
-    git
-    htop
-    neofetch
-    python3
-    vulkan-tools
-    mesa-demos
-    libsForQt5.yakuake
-  ];
+  environment.systemPackages =
+    (with pkgs; [
+      #  vim # Do not forget to add an editor to edit config.nix! The Nano editor is also installed by default.
+      wget
+      micro
+      bash
+      git
+      htop
+      neofetch
+      python3
+      vulkan-tools
+      mesa-demos
+      libsForQt5.yakuake
+    ])
+    ++ (with pkgs-unstable; [
+      #plasticity
+    ]);
 
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    #programs.steam.gamescopeSession.enable = true; # set steam to start in gamescope
   };
+  programs.steam.gamescopeSession.enable = true; # set steam to start in gamescope
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
