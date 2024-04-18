@@ -14,6 +14,7 @@
     ./plasma.nix
     ./locale.nix
     ./system.nix
+    ./virtualbox.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -52,6 +53,7 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      allowInsecure = true;
     };
   };
 
@@ -96,7 +98,7 @@
         firefox
         itch
         prismlauncher
-        #r2modman
+        r2modman
         keepassxc
         vesktop
         gimp-with-plugins
@@ -135,6 +137,10 @@
     };
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0" # for r2modman 3.1.44
+  ];
+
   # systemd bootloader
   #boot.loader.systemd-boot.enable = true;
 
@@ -147,6 +153,7 @@
     #  vim # Do not forget to add an editor to edit config.nix! The Nano editor is also installed by default.
     wget
     micro
+    bash
     git
     htop
     neofetch
