@@ -10,7 +10,6 @@
 }: {
   # You can import other NixOS modules here
   imports = [
-
     # You can also split up your config and import pieces of it here:
     ./plasma.nix
     ./locale.nix
@@ -29,8 +28,6 @@
     inputs.hardware.nixosModules.common-cpu-intel-cpu-only
     inputs.hardware.nixosModules.common-gpu-amd
     #inputs.hardware.nixosModules.common-ssd
-
-
   ];
 
   nixpkgs = {
@@ -92,73 +89,71 @@
       # initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
 
-      # Be sure to add any other groups you need 
+      # Be sure to add any other groups you need
       # (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel" "networkmanager"];
       packages = with pkgs; [
-      firefox
-      itch
-      prismlauncher
-      r2modman
-      keepassxc
-      armcord
-      gimp-with-plugins
-      blender-hip
-      #gimp
-      inkscape-with-extensions
-      #gimpPlugins.resynthesizer
-      krita
-      github-desktop
-      wineWowPackages.stable
-      winetricks
-      syncthing
-      libresprite
-      spotify
-      handbrake
-      slade
-      trenchbroom
-      easyeffects
-      audacity
-      mpv
-      haruna
-      deluge
-      vscodium
-      godot_4
-      lutris-free
-      httrack
-      kate
-      libsForQt5.filelight
-      obs-studio
-      alejandra
-      #thunderbird
-      unstable.plasticity
-    ];
+        firefox
+        itch
+        prismlauncher
+        #r2modman
+        keepassxc
+        vesktop
+        gimp-with-plugins
+        blender-hip
+        #gimp
+        inkscape-with-extensions
+        #gimpPlugins.resynthesizer
+        krita
+        github-desktop
+        wineWowPackages.stable
+        winetricks
+        syncthing
+        libresprite
+        spotify
+        handbrake
+        slade
+        trenchbroom
+        easyeffects
+        audacity
+        mpv
+        haruna
+        deluge
+        vscodium
+        godot_4
+        lutris-free
+        httrack
+        kate
+        libsForQt5.filelight
+        obs-studio
+        alejandra
+      ];
 
       #openssh.authorizedKeys.keys = [
-        # Add your SSH public key(s) here, if you plan on using SSH to connect
+      # Add your SSH public key(s) here, if you plan on using SSH to connect
       #];
     };
   };
 
-    # systemd bootloader
+  # systemd bootloader
   #boot.loader.systemd-boot.enable = true;
-  
+
   # grub bootloader
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
 
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit config.nix! The Nano editor is also installed by default.
-     wget
-     micro
-     git
-     htop
-     neofetch
-     python3
-     vulkan-tools
-     mesa-demos
-     libsForQt5.yakuake
+    #  vim # Do not forget to add an editor to edit config.nix! The Nano editor is also installed by default.
+    wget
+    micro
+    git
+    htop
+    neofetch
+    python3
+    vulkan-tools
+    mesa-demos
+    libsForQt5.yakuake
   ];
 
   programs.steam = {
@@ -167,7 +162,6 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     #programs.steam.gamescopeSession.enable = true; # set steam to start in gamescope
   };
-
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
@@ -182,5 +176,5 @@
   # };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }
