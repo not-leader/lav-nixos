@@ -1,0 +1,28 @@
+warning: Git tree '/home/lavender/Nix' is dirty
+building the system configuration...
+warning: Git tree '/home/lavender/Nix' is dirty
+error (ignored): error: download of 'https://cache.nixos.org/1dg6i3749vzg3rf9kg7s0p2svg70snsn.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/kwxm0iah2pd4q90fdalf4nb933ygp6jh.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/i8f0xz3i40sj779a250r2ij9nczajcb7.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/d0kyq1n67j9jig047y0s1yyj9hw1sx53.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/n09ra45qdipp6k06l2gjciyn1wl14na0.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/5n1w8qsmwvhd2r8a72r0vdfn1shi57z1.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/j434a0jlhy6vd8rmyr8yrdgcnws5c0bq.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/gjjqc2cv47mvdci9zrifqs9kcpschkni.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/irmrsjzmbf7z7m2k19cjbj05br96mrz2.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/8jfhpgp2zkq9s1wfadgipwjb4ak0qkrv.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/9xv0xksk0v8va41qs80j6lm30szlijj0.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/7nhcy6qypdwjb960awg8d1gzwhyfgzrc.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/hfjihxsjm9l1s2gx1p3a8pnpiimmnhr8.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/2hs0i38zj4r3w5vldz3c0z231ihwa1mq.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/fm6r0s3ww9li907czp9vjjqldlfm1w9s.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/dk8270mny8yzj3rxyrd3ks64ghpxx71a.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/hprhgvjprah9yccnjkhz14xl80nxn6rp.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/0xr0xfn09wfz2asacm55q7vf4f1rfcfh.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/crp80hs5lqdnm7n088x7hyqz2kakan6d.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/da3saxnl6qrhyyp7i99hww8hi5k4y7jp.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/v3smacbdnjj6z8cspnzk73j4c1yc4yac.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/czgsrq3qrinhdqzv3pq2c3r5fczvjjfw.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/x7xfypddydmxyshjal2jdn19m1r4k0m5.narinfo' was interrupted
+error (ignored): error: download of 'https://cache.nixos.org/741z680jr1j8ic569d5fqjbrp52812d3.narinfo' was interrupted
+error: download of 'https://cache.nixos.org/dywf24mrix32l1azzpdfjwlcfimqib2x.narinfo' was interrupted

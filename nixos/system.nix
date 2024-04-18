@@ -1,4 +1,13 @@
 {
+
+
+    # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Enable Bluetooth 
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -15,4 +24,8 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  
+
+
+
 }

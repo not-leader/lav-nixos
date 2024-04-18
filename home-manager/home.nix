@@ -47,7 +47,6 @@
     };
   };
 
-  # TODO: Set your username
   home = {
     username = "lavender";
     homeDirectory = "/home/lavender";
@@ -56,41 +55,9 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
    home.packages = with pkgs; [
-      firefox
-      itch    
-      keepassxc
-      armcord
-      gimp-with-plugins
-      blender-hip
-      #gimp
-      inkscape-with-extensions
-      #gimpPlugins.resynthesizer
-      krita
-      github-desktop
-      wineWowPackages.stable
-      winetricks
-      syncthing
-      libresprite
-      spotify
-      handbrake
-      slade
-      trenchbroom
-      easyeffects
-      audacity
-      prismlauncher
-      mpv
-      haruna 
-      deluge
-      vscodium
-      godot_4
-      lutris-free
-      httrack
-      kate
-      libsForQt5.filelight
-      obs-studio
       #thunderbird
     ];
-    
+
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
@@ -99,5 +66,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-    system.stateVersion = "23.11";
+    system.stateVersion = "23.05";
 }
