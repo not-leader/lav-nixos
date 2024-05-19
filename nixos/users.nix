@@ -1,7 +1,7 @@
 {
 
   # Set your hostname
-  networking.hostName = "WorkStation";
+  networking.hostName = "Wacom-MSPro";
 
   # Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
