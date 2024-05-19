@@ -12,7 +12,7 @@
   # You can import other NixOS modules here
   imports = [
     # You can also split up your config and import pieces of it here:
-    ./plasma.nix
+    ./gnome.nix
     ./locale.nix
     ./system.nix
     ./virtualbox.nix
@@ -81,7 +81,7 @@
   };
 
   # Set your hostname
-  networking.hostName = "WorkStation";
+  networking.hostName = "Wacom-MSPro";
 
   # Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
@@ -124,7 +124,6 @@
         godot_4
         lutris-free
         httrack
-        kate
         libsForQt5.filelight
         obs-studio
         alejandra
@@ -137,13 +136,13 @@
     };
   };
 
-  pkgs.vesktop.override {
-      nss = pkgs.nss_3_99;
+#   pkgs.vesktop.override {
+#       nss = pkgs.nss_3_99;
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0" # for r2modman 3.1.44
-    #"python-2.7.18.7"
-  ];
+#   nixpkgs.config.permittedInsecurePackages = [
+#  #   "electron-25.9.0" # for r2modman 3.1.44
+#     #"python-2.7.18.7"
+#   ];
 
   #nixpkgs.config.allowBroken = true;
 
