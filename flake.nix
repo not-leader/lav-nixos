@@ -3,10 +3,10 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     # Home manager
@@ -15,6 +15,7 @@
 
     #Add any other flake you might need
     hardware.url = "github:nixos/nixos-hardware";
+    qpakman.url = "github:not-leader/nixpkgs/add-qpakman";
 
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
@@ -26,6 +27,7 @@
     nixpkgs,
     home-manager,
     nixpkgs-unstable,
+    qpakman,
     ...
   } @ inputs: let
     inherit (self) outputs;

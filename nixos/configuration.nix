@@ -15,7 +15,7 @@
     ./plasma.nix
     ./locale.nix
     ./system.nix
-    ./virtualbox.nix
+    #./virtualbox.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -28,7 +28,7 @@
 
     # Or modules from other flakes (such as nixos-hardware):
     inputs.hardware.nixosModules.common-cpu-intel-cpu-only
-    inputs.hardware.nixosModules.common-gpu-amd
+    #inputs.hardware.nixosModules.common-gpu-amd
     #inputs.hardware.nixosModules.common-ssd
   ];
 
@@ -96,14 +96,16 @@
       # (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel" "networkmanager"];
       packages = with pkgs; [
+        firefox-unwrapped
+        floorp
         itch
         prismlauncher
         r2modman
         keepassxc
-        vesktop
         gimp-with-plugins
         blender-hip
         #gimp
+        plasticity
         inkscape-with-extensions
         krita
         github-desktop
@@ -113,7 +115,7 @@
         libresprite
         spotify
         handbrake
-        slade
+        #slade
         trenchbroom
         easyeffects
         audacity
@@ -125,10 +127,25 @@
         lutris-free
         httrack
         kate
+        p7zip
         libsForQt5.filelight
         obs-studio
         alejandra
-        firefox
+        zulu #java4minecraft
+        pwvucontrol
+        moonlight-qt
+        #quake related
+        vkquake
+        ironwail
+        quakespasm
+        darkplaces
+        fteqw
+        fteqcc
+        embree
+        embree2
+        ericw-tools
+        trenchbroom
+        qpakman
       ];
 
       #openssh.authorizedKeys.keys = [
@@ -137,11 +154,9 @@
     };
   };
 
-  pkgs.vesktop.override {
-      nss = pkgs.nss_3_99;
-
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0" # for r2modman 3.1.44
+    "freeimage-unstable-2021-11-01"
     #"python-2.7.18.7"
   ];
 
@@ -155,23 +170,36 @@
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
 
-  environment.systemPackages =
-    (with pkgs; [
-      #  vim # Do not forget to add an editor to edit config.nix! The Nano editor is also installed by default.
-      wget
-      micro
-      bash
-      git
-      htop
-      neofetch
-      python3
-      vulkan-tools
-      mesa-demos
-      libsForQt5.yakuake
-    ])
-    ++ (with pkgs-unstable; [
-      #plasticity
-    ]);
+  environment.systemPackages = with pkgs; [
+    #  vim # Do not forget to add an editor to edit config.nix! The Nano editor is also installed by default.
+    wget
+    micro
+    bash
+    git
+    htop
+    neofetch
+    python3
+    vulkan-tools
+    mesa-demos
+    flatpak
+    libsForQt5.yakuake
+    libsForQt5.discover
+  ];
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [47984 47989 47990 48010];
+    allowedUDPPortRanges = [
+      {
+        from = 47998;
+        to = 48000;
+      }
+      {
+        from = 8000;
+        to = 8010;
+      }
+    ];
+  };
 
   programs.steam = {
     enable = true;
@@ -181,6 +209,9 @@
   programs.steam.gamescopeSession.enable = true; # set steam to start in gamescope
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  #flatpak supports
+  services.flatpak.enable = true;
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.

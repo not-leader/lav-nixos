@@ -38,13 +38,13 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  hardware.opengl = {
+ # hardware.opengl = {
     ## radv: an open-source Vulkan driver from freedesktop
-    driSupport = true;
-    driSupport32Bit = true;
+    #driSupport = true;
+   # driSupport32Bit = true;
 
     ## amdvlk: an open-source Vulkan driver from AMD
     #extraPackages = [ pkgs.amdvlk ];
     #extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
-  };
+  #};
 }
